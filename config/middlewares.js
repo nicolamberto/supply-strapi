@@ -2,10 +2,12 @@ module.exports = [
   'strapi::logger',
   'strapi::errors',
   'strapi::security',
-  {
+ {
     name: 'strapi::cors',
     config: {
-      origin: ['https://tu-frontend.vercel.app'],
+      origin: ['https://supply-six.vercel.app'], // tu dominio frontend
+      methods: ['GET', 'POST', 'PUT', 'DELETE'],
+      headers: '*',
       credentials: true,
     },
   },
