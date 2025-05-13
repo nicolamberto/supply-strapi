@@ -1,13 +1,13 @@
 module.exports = ({ env }) => ({
   auth: {
-    secret: env('ADMIN_JWT_SECRET', 'test-admin-jwt-secret'), // Solo para pruebas
+    secret: env('ADMIN_JWT_SECRET'),
   },
   apiToken: {
-    salt: env('API_TOKEN_SALT', 'test-api-token-salt'), // Solo para pruebas
+    salt: env('API_TOKEN_SALT'),
   },
   transfer: {
     token: {
-      salt: env('TRANSFER_TOKEN_SALT', 'test-transfer-token-salt'), // Solo para pruebas
+      salt: env('TRANSFER_TOKEN_SALT'),
     },
   },
   flags: {
