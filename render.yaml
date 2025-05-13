@@ -1,0 +1,26 @@
+services:
+  - type: web
+    name: strapi-app
+    env: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm run start
+    envVars:
+      - key: NODE_VERSION
+        value: 18
+      - key: NODE_ENV
+        value: production
+      - key: CLOUDINARY_NAME
+        value: do9uhdawv
+      - key: CLOUDINARY_KEY
+        value: 171531986578154
+      - key: CLOUDINARY_SECRET
+        value: gWXUTRr1aZicGHrH8M21BXLQ24E
+      - key: APP_KEYS
+        generateValue: true
+      - key: API_TOKEN_SALT
+        generateValue: true
+      - key: ADMIN_JWT_SECRET
+        generateValue: true
+      - key: JWT_SECRET
+        generateValue: true
