@@ -459,62 +459,42 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
   collectionName: 'products';
   info: {
     description: '';
-    displayName: 'Product';
+    displayName: 'product';
     pluralName: 'products';
     singularName: 'product';
   };
   options: {
     draftAndPublish: true;
   };
-  pluginOptions: {
-    i18n: {
-      localized: true;
-    };
-  };
   attributes: {
-    capacity: Schema.Attribute.String;
+    capacidad: Schema.Attribute.String;
+    caracteristicas: Schema.Attribute.String;
+    codigo: Schema.Attribute.UID<'nombre'> & Schema.Attribute.Required;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    description: Schema.Attribute.Text &
-      Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    ecofriendly: Schema.Attribute.Boolean;
-    image: Schema.Attribute.Media<'images' | 'files'> &
-      Schema.Attribute.Required;
-    loadCapacity: Schema.Attribute.String;
-    locale: Schema.Attribute.String;
+    diametroboca: Schema.Attribute.String;
+    entrada: Schema.Attribute.String;
+    img: Schema.Attribute.Media<'images' | 'files'> & Schema.Attribute.Required;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::product.product'
-    >;
+    > &
+      Schema.Attribute.Private;
     material: Schema.Attribute.String;
-    name: Schema.Attribute.String &
+    medidas: Schema.Attribute.String;
+    nombre: Schema.Attribute.String &
       Schema.Attribute.Required &
-      Schema.Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
+      Schema.Attribute.Unique;
     product_category: Schema.Attribute.Relation<
       'manyToOne',
       'api::product-category.product-category'
     >;
     publishedAt: Schema.Attribute.DateTime;
-    slug: Schema.Attribute.UID & Schema.Attribute.Required;
-    technicalDetails: Schema.Attribute.Component<
-      'technicals-details.techical-details',
-      false
-    >;
-    thermalSpectrum: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    variants: Schema.Attribute.String;
   };
 }
 

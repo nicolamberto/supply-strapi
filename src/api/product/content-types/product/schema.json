@@ -4,41 +4,37 @@
   "info": {
     "singularName": "product",
     "pluralName": "products",
-    "displayName": "Product",
+    "displayName": "product",
     "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
-  "pluginOptions": {
-    "i18n": {
-      "localized": true
-    }
-  },
   "attributes": {
-    "name": {
+    "nombre": {
       "type": "string",
       "required": true,
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
+      "unique": true
     },
-    "description": {
-      "type": "text",
-      "required": true,
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
+    "medidas": {
+      "type": "string",
+      "required": false
     },
-    "slug": {
+    "caracteristicas": {
+      "type": "string"
+    },
+    "codigo": {
       "type": "uid",
-      "required": true
+      "required": true,
+      "targetField": "nombre"
     },
-    "image": {
+    "material": {
+      "type": "string"
+    },
+    "capacidad": {
+      "type": "string"
+    },
+    "img": {
       "type": "media",
       "multiple": false,
       "required": true,
@@ -47,35 +43,17 @@
         "files"
       ]
     },
+    "entrada": {
+      "type": "string"
+    },
+    "diametroboca": {
+      "type": "string"
+    },
     "product_category": {
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::product-category.product-category",
       "inversedBy": "products"
-    },
-    "thermalSpectrum": {
-      "type": "string"
-    },
-    "loadCapacity": {
-      "type": "string"
-    },
-    "capacity": {
-      "type": "string"
-    },
-    "material": {
-      "type": "string"
-    },
-    "variants": {
-      "type": "string"
-    },
-    "ecofriendly": {
-      "type": "boolean"
-    },
-    "technicalDetails": {
-      "displayName": "techicalDetails",
-      "type": "component",
-      "repeatable": false,
-      "component": "technicals-details.techical-details"
     }
   }
 }
