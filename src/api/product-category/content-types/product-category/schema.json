@@ -4,7 +4,8 @@
   "info": {
     "singularName": "product-category",
     "pluralName": "product-categories",
-    "displayName": "ProductCategory"
+    "displayName": "ProductCategory",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -30,19 +31,23 @@
       "required": true
     },
     "image": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
       "allowedTypes": [
         "images",
         "files"
-      ],
-      "type": "media",
-      "multiple": false,
-      "required": true
+      ]
     },
     "products": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::product.product",
       "mappedBy": "product_category"
+    },
+    "orden": {
+      "type": "integer",
+      "required": false
     }
   }
 }

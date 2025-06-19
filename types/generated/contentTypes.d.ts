@@ -416,6 +416,7 @@ export interface ApiProductCategoryProductCategory
   extends Struct.CollectionTypeSchema {
   collectionName: 'product_categories';
   info: {
+    description: '';
     displayName: 'ProductCategory';
     pluralName: 'product-categories';
     singularName: 'product-category';
@@ -446,6 +447,7 @@ export interface ApiProductCategoryProductCategory
           localized: true;
         };
       }>;
+    orden: Schema.Attribute.Integer;
     products: Schema.Attribute.Relation<'oneToMany', 'api::product.product'>;
     publishedAt: Schema.Attribute.DateTime;
     slug: Schema.Attribute.UID<'name'> & Schema.Attribute.Required;
